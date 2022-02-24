@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/bricea27/react-icons-material/issues"
   },
-  "homepage": "https://github.com/bricea27/react-icons-material#readme"
+  "homepage": "https://github.com/bricea27/react-icons-material#readme",
+  "dependencies": {
+    "react": "^17.0.2"
+  }
 }
