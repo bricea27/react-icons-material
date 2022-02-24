@@ -1,0 +1,20 @@
+{
+  "name": "react-icons-material",
+  "version": "1.0.0",
+  "description": "A testing ground for future React icon component standardization",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bricea27/react-icons-material.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bricea27/react-icons-material/issues"
+  },
+  "homepage": "https://github.com/bricea27/react-icons-material#readme"
+}
