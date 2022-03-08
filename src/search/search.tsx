@@ -1,12 +1,10 @@
-import { SvgIcon } from '@material-ui/core'
+import { Box } from '@material-ui/core'
 import React from "react";
 
 import { SearchProps } from "./search.types";
 
 const Search: React.FC<SearchProps> = props => (
-  <SvgIcon viewBox="0 0 24 24" {...props}>
-    {/* Svg paths here. */}
-  </SvgIcon>
+  <Box width={10} height={10} display="block" {...props} />
 );
 
 export default Search;

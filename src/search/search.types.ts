@@ -1,3 +1,3 @@
 export interface SearchProps {
-  fill: "primary" | "secondary";
+  bgcolor: "primary" | "secondary";
 }
