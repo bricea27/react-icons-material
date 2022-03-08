@@ -1,1 +1,1 @@
-export { default as trendingUpRounded } from './trendingUpRounded/trendingUpRounded'
+export { default as TrendingUpRounded } from './trendingUpRounded/trendingUpRounded'

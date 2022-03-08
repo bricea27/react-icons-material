@@ -9,7 +9,7 @@ if (!name) {
   process.exit(1);
 }
 
-const componentName = `${_.startCase(name).replace(/\s/g, '')}`;
+const componentName = `${_.startCase(name).replace(/\s/g, '')}`
 const componentNameQueryString = name.split('-').join('+');
 const componentFileName = `${_.camelCase(name)}`;
 const componentDirectory = `./src/${componentFileName}`;
@@ -54,12 +54,12 @@ fs.writeFileSync(
 
 // Recursively generate the export list of components
 fs.readdir('./src', (err, files) => {
-  console.log(`Adding ${componentName} to the export list.`, files)
+  console.log(`Adding ${componentName} to the export list.`)
 
   // Build out the list of component exports
   const fileContents = files.reduce((prev, curr) => {
     if (curr !== 'index.ts') {
-      prev += `export { default as ${_.camelCase(curr)} } from './${curr}/${curr}'\n`
+      prev += `export { default as ${_.startCase(curr).replace(/\s/g, '')} } from './${curr}/${curr}'\n`
     }
 
     return prev
@@ -70,8 +70,6 @@ fs.readdir('./src', (err, files) => {
 });
 
 // Open the Material Design Icons explorer
-// open(`https://fonts.google.com/icons?icon.query=${componentNameQueryString}`)
+open(`https://fonts.google.com/icons?icon.query=${componentNameQueryString}`)
 
-console.log(
-  "Successfully created component under: " + componentDirectory
-);
+console.log("Successfully created component under: " + componentDirectory);
