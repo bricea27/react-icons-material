@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "build": "rollup -c",
+    "generate": "node scripts/generate",
     "prepublishOnly": "npm run build"
   },
   "repository": {
@@ -41,6 +42,8 @@
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.13",
     "babel-loader": "^8.2.3",
+    "lodash": "^4.17.21",
+    "open": "^8.4.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rollup": "^2.70.0",

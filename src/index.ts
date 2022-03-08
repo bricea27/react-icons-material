@@ -1,1 +1,1 @@
-export { default as Search } from './search/search'
+export { default as trendingUpRounded } from './trendingUpRounded/trendingUpRounded'

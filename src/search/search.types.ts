@@ -1,5 +1,0 @@
-export interface SearchProps {
-  color: "action" | "disabled" | "error" | "inherit" | "primary" | "secondary";
-  fontSize: 'default' | 'inherit' | 'large' | 'medium' | 'small';
-  htmlColor: string;
-}
