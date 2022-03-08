@@ -8,13 +8,14 @@
     "build"
   ],
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bricea27/react-icons-material.git"
   },
-  "keywords": [],
+  "keywords": ["React", "Icons", "Material UI", "Svg"],
   "author": "",
   "license": "MIT",
   "bugs": {
@@ -23,6 +24,7 @@
   "homepage": "https://github.com/bricea27/react-icons-material#readme",
   "peerDependencies": {
     "@material-ui/core": "4.12.3",
+    "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
