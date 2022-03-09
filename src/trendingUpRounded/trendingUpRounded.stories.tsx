@@ -1,16 +1,13 @@
 import React from "react";
-import TrendingUpRounded from './trendingUpRounded';
+import { ComponentMeta } from '@storybook/react';
+
+import TrendingUpRoundedComponent from './trendingUpRounded';
 
 export default {
-  title: "TrendingUpRounded"
-};
+  title: "TrendingUpRounded",
+  component: TrendingUpRoundedComponent
+} as ComponentMeta<typeof TrendingUpRounded>;
 
-export const Primary = () => <TrendingUpRounded color="primary" />;
+export const TrendingUpRounded = args => <TrendingUpRoundedComponent {...args} />
 
-export const Secondary = () => <TrendingUpRounded color="secondary" />;
-
-export const Large = () => <TrendingUpRounded fontSize="large" />;
-
-export const Small = () => <TrendingUpRounded fontSize="small" />;
-
-export const CustomColor = () => <TrendingUpRounded htmlColor="#1dcf83" />;
+TrendingUpRounded.storyName = 'TrendingUpRounded'

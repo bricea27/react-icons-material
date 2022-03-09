@@ -30,7 +30,7 @@ fs.writeFileSync(
   `import { SvgIcon, SvgIconProps } from '@material-ui/core'
 import React from "react";
   
-export interface ${componentName}Props extends SvgIconProps {}
+interface ${componentName}Props extends SvgIconProps {}
   
 const ${componentName} = React.forwardRef((props: ${componentName}Props, ref: any) => (
   <SvgIcon viewBox="0 0 24 24" {...props} ref={ref}>
@@ -38,6 +38,8 @@ const ${componentName} = React.forwardRef((props: ${componentName}Props, ref: an
   </SvgIcon>
 ));
   
+${componentName}.displayName = '${componentName}';
+
 export default ${componentName};
 `
 );
@@ -46,22 +48,18 @@ export default ${componentName};
 fs.writeFileSync(
   `${componentDirectory}/${componentFileName}.stories.tsx`,
   `import React from "react";
-import ${componentName} from './${componentFileName}';
+import { ComponentMeta } from '@storybook/react';
+  
+import ${componentName}Component from './${componentFileName}';
   
 export default {
-  title: "${componentName}"
-};
+  title: "${componentName}",
+  component: ${componentName}Component
+} as ComponentMeta<typeof ${componentName}>;
   
-export const Primary = () => <${componentName} color="primary" />;
+export const ${componentName} = args => <${componentName}Component {...args} />
   
-export const Secondary = () => <${componentName} color="secondary" />;
-  
-export const Large = () => <${componentName} fontSize="large" />;
-  
-export const Small = () => <${componentName} fontSize="small" />;
-  
-export const CustomColor = () => <${componentName} htmlColor="#1dcf83" />;
-`
+${componentName}.storyName = '${componentName}'`
 );
 
 // Recursively generate the export list of components
