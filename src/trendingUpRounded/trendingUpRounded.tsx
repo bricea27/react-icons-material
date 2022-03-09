@@ -1,7 +1,7 @@
-import { SvgIcon } from '@material-ui/core'
+import { SvgIcon, SvgIconProps } from '@material-ui/core'
 import React from "react";
 
-import { TrendingUpRoundedProps } from "./trendingUpRounded.types";
+export interface TrendingUpRoundedProps extends SvgIconProps {}
 
 const TrendingUpRounded = React.forwardRef((props: TrendingUpRoundedProps, ref: any) => (
   <SvgIcon viewBox="0 0 24 24" {...props} ref={ref}>
