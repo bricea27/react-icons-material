@@ -1,6 +1,7 @@
 const _ = require('lodash')
 const fs = require("fs");
 const open = require('open')
+const templates = require("./templates");
 
 const name = process.argv[2];
 
@@ -24,43 +25,16 @@ if (fs.existsSync(componentDirectory)) {
 // Create the directory
 fs.mkdirSync(componentDirectory);
 
-// Create the component
-fs.writeFileSync(
-  `${componentDirectory}/${componentFileName}.tsx`,
-  `import { SvgIcon, SvgIconProps } from '@material-ui/core'
-import React from "react";
-  
-interface ${componentName}Props extends SvgIconProps {}
-  
-const ${componentName} = React.forwardRef((props: ${componentName}Props, ref: any) => (
-  <SvgIcon viewBox="0 0 24 24" {...props} ref={ref}>
-    {/* Svg paths here. */}
-  </SvgIcon>
-));
-  
-${componentName}.displayName = '${componentName}';
+// Compile the associated component files
+const generatedTemplates = templates.map((template) => template({ componentName, componentFileName }));
 
-export default ${componentName};
-`
-);
-
-// Create the story file
-fs.writeFileSync(
-  `${componentDirectory}/${componentFileName}.stories.tsx`,
-  `import React from "react";
-import { ComponentMeta } from '@storybook/react';
-  
-import ${componentName}Component from './${componentFileName}';
-  
-export default {
-  title: "${componentName}",
-  component: ${componentName}Component
-} as ComponentMeta<typeof ${componentName}>;
-  
-export const ${componentName} = args => <${componentName}Component {...args} />
-  
-${componentName}.storyName = '${componentName}'`
-);
+// Create the associated component files
+generatedTemplates.forEach(({ extension, content }) => {
+  fs.writeFileSync(
+    `${componentDirectory}/${componentFileName}${extension}`,
+    content
+  );
+});
 
 // Recursively generate the export list of components
 fs.readdir('./src', (err, files) => {

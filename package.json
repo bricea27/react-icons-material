@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "generate": "node scripts/generate",
+    "generate": "node util/generate",
     "prepublishOnly": "npm run build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
